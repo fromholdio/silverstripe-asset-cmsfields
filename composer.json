@@ -1,0 +1,30 @@
+{
+  "name": "fromholdio/silverstripe-asset-cmsfields",
+  "type": "silverstripe-vendormodule",
+  "description": "Improved CMS fields arrangement for File & Image objects in Asset Admin",
+  "license": "BSD-3-Clause",
+  "keywords": ["silverstripe", "assets", "cms", "fields", "images", "files"],
+  "homepage": "https://github.com/fromholdio/silverstripe-asset-cmsfields",
+  "support": {
+    "issues": "https://github.com/fromholdio/silverstripe-asset-cmsfields/issues"
+  },
+  "authors": [{
+    "name": "Luke Fromhold",
+    "homepage": "https://fromhold.io"
+  }],
+  "require": {
+    "silverstripe/vendor-plugin": "^1.0",
+    "silverstripe/asset-admin": "^1"
+  },
+  "suggest": {
+    "jonom/focuspoint": "^4",
+    "purplespider/asset-alt-text": "^1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Fromholdio\\AssetCMSFields\\": "src/"
+    }
+  },
+  "prefer-stable": true,
+  "minimum-stability": "dev"
+}

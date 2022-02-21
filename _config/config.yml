@@ -1,0 +1,14 @@
+---
+Name: fio-asset-cmsfields
+After:
+  - 'asset-alt-text'
+  - 'focuspoint'
+---
+
+SilverStripe\AssetAdmin\Forms\FileFormFactory:
+  extensions:
+    fioFileFormFactory: Fromholdio\AssetCMSFields\FileFormFactoryExtension
+
+SilverStripe\AssetAdmin\Forms\ImageFormFactory:
+  extensions:
+    fioImageFormFactory: Fromholdio\AssetCMSFields\ImageFormFactoryExtension
