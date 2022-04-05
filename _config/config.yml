@@ -12,3 +12,7 @@ SilverStripe\AssetAdmin\Forms\FileFormFactory:
 SilverStripe\AssetAdmin\Forms\ImageFormFactory:
   extensions:
     fioImageFormFactory: Fromholdio\AssetCMSFields\ImageFormFactoryExtension
+
+SilverStripe\Assets\File:
+  summary_fields:
+    Extension: 'Type'
