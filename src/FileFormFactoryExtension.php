@@ -3,6 +3,7 @@
 namespace Fromholdio\AssetCMSFields;
 
 use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\ReadonlyField;
 use SilverStripe\Forms\Tab;
 use SilverStripe\Forms\TabSet;
 use SilverStripe\ORM\DataExtension;
@@ -40,6 +41,13 @@ class FileFormFactoryExtension extends DataExtension
                 if ($titleField && $this->getOwner()->hasMethod('updateFluentCMSField')) {
                     $this->getOwner()->updateFluentCMSField($titleField);
                 }
+
+                $extensionField = ReadonlyField::create(
+                    'Extension',
+                    $file->fieldLabel('Extension'),
+                    $file->getExtension()
+                );
+                $fields->insertAfter('Title', $extensionField);
             }
         }
     }
