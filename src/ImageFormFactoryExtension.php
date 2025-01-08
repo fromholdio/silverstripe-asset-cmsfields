@@ -18,31 +18,9 @@ class ImageFormFactoryExtension extends DataExtension
         if ($image && in_array($image->appCategory(), ['image','vector']))
         {
             $altTextField = $fields->dataFieldByName('AltText');
-            if ($altTextField)
+            if ($altTextField && $altTextField instanceof TippableFieldInterface)
             {
-                $fields->removeByName('AltText');
-                $altTextField = TextField::create('AltText', 'Alternative text (alt)');
-                $altTextDescription = _t(
-                    'SilverStripe\\AssetAdmin\\Controller\\AssetAdmin.AltTextTip',
-                    'Description for visitors who are unable to view the image (using screenreaders or ' .
-                    'image blockers). Recommended for images which provide unique context to the content.'
-                );
-                if ($altTextField instanceof TippableFieldInterface) {
-                    $altTextField->setTip(new Tip($altTextDescription));
-                } else {
-                    $altTextField->setDescription($altTextDescription);
-                }
-                if ($this->getOwner()->hasMethod('updateFluentCMSField')) {
-                    $this->getOwner()->updateFluentCMSField($altTextField);
-                }
-
-                $titleField = $fields->fieldByName('Editor.Details.Title');
-                if ($titleField) {
-                    if ($titleField->isReadonly()) {
-                        $altTextField = $altTextField->performReadonlyTransformation();
-                    }
-                    $fields->insertAfter('Title', $altTextField);
-                }
+                $altTextField->getTip()->setImportanceLevel(Tip::IMPORTANCE_LEVELS['NORMAL']);
             }
 
             /** @var TabSet $rootTabSet */
@@ -51,7 +29,8 @@ class ImageFormFactoryExtension extends DataExtension
             {
                 $tab = Tab::create('FocusPointTab', 'Focus');
                 $fpField = $fields->fieldByName('Editor.Details.FocusPoint');
-                if ($fpField) {
+                if ($fpField)
+                {
                     $fields->removeByName('FocusPoint');
                     $tab->push($fpField);
                     $rootTabSet->insertAfter('Details', $tab);

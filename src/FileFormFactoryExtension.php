@@ -37,11 +37,6 @@ class FileFormFactoryExtension extends DataExtension
                 }
                 $rootTabSet->insertAfter('Permissions', $tab);
 
-                $titleField = $fields->fieldByName('Editor.Details.Title');
-                if ($titleField && $this->getOwner()->hasMethod('updateFluentCMSField')) {
-                    $this->getOwner()->updateFluentCMSField($titleField);
-                }
-
                 $extensionField = ReadonlyField::create(
                     'Extension',
                     $file->fieldLabel('Extension'),
