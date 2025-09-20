@@ -2,13 +2,13 @@
 
 namespace Fromholdio\AssetCMSFields;
 
+use SilverStripe\Core\Extension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\ReadonlyField;
 use SilverStripe\Forms\Tab;
 use SilverStripe\Forms\TabSet;
-use SilverStripe\ORM\DataExtension;
 
-class FileFormFactoryExtension extends DataExtension
+class FileFormFactoryExtension extends Extension
 {
     public function updateFormFields(FieldList $fields, $controller, $formName, $context)
     {

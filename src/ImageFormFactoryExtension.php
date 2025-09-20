@@ -2,15 +2,15 @@
 
 namespace Fromholdio\AssetCMSFields;
 
+use SilverStripe\Core\Extension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\Tab;
 use SilverStripe\Forms\TabSet;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\Tip;
 use SilverStripe\Forms\TippableFieldInterface;
-use SilverStripe\ORM\DataExtension;
 
-class ImageFormFactoryExtension extends DataExtension
+class ImageFormFactoryExtension extends Extension
 {
     public function updateFormFields(FieldList $fields, $controller, $formName, $context)
     {
